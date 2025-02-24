@@ -62,13 +62,10 @@ new #[Layout('layouts.guest')] class extends Component {
             @csrf
             <div class="rounded-md shadow-sm space-y-6">
                 <div>
-                    <label for="email" class="sr-only">
-                        Correo electrónico
-                    </label>
-                    <input id="email" name="email" type="email" autocomplete="email" wire:model="form.email"
-                        required
-                        class="appearance-none rounded-lg relative block w-full pr-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm @error('email') border-red-500 @enderror"
-                        placeholder="Correo electrónico" value="{{ old('email') }}" />
+                    <x-input-label for="email" :value="__('general.email')" />
+                    <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email"
+                        name="email" required autocomplete="username" />
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     <x-input-error :messages="$errors->get('form.email')" class="mt-2" />
                 </div>
             </div>

@@ -52,23 +52,17 @@ new #[Layout('layouts.guest')] class extends Component {
             @csrf
             <div class="rounded-md shadow-sm space-y-6">
                 <div>
-                    <label for="email" class="sr-only">
-                        Correo electrónico
-                    </label>
-                    <input id="email" name="email" type="email" autocomplete="email" wire:model="form.email"
-                        required
-                        class="appearance-none rounded-lg relative block w-full pl-4 pr-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm @error('email') border-red-500 @enderror"
-                        placeholder="Correo electrónico" value="{{ old('email') }}" />
+                    <x-input-label for="email" :value="__('general.email')" />
+                    <x-text-input wire:model="form.email" id="email" class="block mt-1 w-full" type="email"
+                        name="email" required autofocus autocomplete="username" />
                     <x-input-error :messages="$errors->get('form.email')" class="mt-2" />
                 </div>
                 <div>
-                    <label for="password" class="sr-only">
-                        Contraseña
-                    </label>
-                    <input id="password" name="password" type="password" autocomplete="current-password"
-                        wire:model="form.password" required
-                        class="appearance-none rounded-lg relative block w-full pl-4 pr-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm @error('password') border-red-500 @enderror"
-                        placeholder="Contraseña" />
+                    <x-input-label for="password" :value="__('general.password')" />
+
+                    <x-text-input wire:model="form.password" id="password" class="block mt-1 w-full" type="password"
+                        name="password" required autocomplete="current-password" />
+
                     <x-input-error :messages="$errors->get('form.password')" class="mt-2" />
                 </div>
             </div>
@@ -77,12 +71,11 @@ new #[Layout('layouts.guest')] class extends Component {
                 <div class="block">
                     <label for="remember" class="inline-flex items-center">
                         <input wire:model="form.remember" id="remember" type="checkbox"
-                            class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
-                            name="remember">
+                            class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500" name="remember">
                         <span class="ms-2 text-sm text-gray-600">Recordarme</span>
                     </label>
                 </div>
-                <a href="{{ route('password.request') }}" class="text-sm text-gray-600 hover:text-gray-900">
+                <a href="{{ route('password.request') }}" class="text-sm text-gray-600 hover:text-blue-900">
                     ¿Olvidaste tu contraseña?
                 </a>
             </div>

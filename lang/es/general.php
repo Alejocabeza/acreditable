@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'email' => 'Correo Electrónico',
+    'password' => 'Contraseña',
+    'password_confirmation' => 'Confirmar Contraseña',
+    'name' => 'Nombre',
     "settings" => "ajustes",
     'accounts' => 'Cuentas',
     'categories' => 'categorías',

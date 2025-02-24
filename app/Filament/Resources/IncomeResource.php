@@ -47,7 +47,9 @@ class IncomeResource extends Resource
                     ->required()
                     ->default(now()),
                 Select::make('account_id')
-                    ->options(Account::all()->pluck('name', 'id')->toArray())
+                    ->options(Account::all()->mapWithKeys(function ($account) {
+                        return [$account->id => "{$account->name} [\${$account->balance}]"];
+                    })->toArray())
                     ->live()
                     ->preload()
                     ->searchable()

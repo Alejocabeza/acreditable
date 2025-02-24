@@ -64,44 +64,29 @@ new #[Layout('layouts.guest')] class extends Component {
             @csrf
             <div class="rounded-md shadow-sm space-y-4">
                 <div>
-                    <label for="name" class="sr-only">
-                        Nombre
-                    </label>
-                    <input id="name" name="name" type="name" autocomplete="name" wire:model="form.name"
-                        required
-                        class="appearance-none rounded-lg relative block w-full pl-4 pr-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm @error('email') border-red-500 @enderror"
-                        placeholder="Nombre" value="{{ old('name') }}" />
-                    <x-input-error :messages="$errors->get('form.name')" class="mt-2" />
+                    <x-input-label for="name" :value="__('general.name')" />
+                    <x-text-input wire:model="name" id="name" class="block mt-1 w-full" type="text"
+                        name="name" required autofocus autocomplete="name" />
+                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
                 </div>
                 <div>
-                    <label for="email" class="sr-only">
-                        Correo electrónico
-                    </label>
-                    <input id="email" name="email" type="email" autocomplete="email" wire:model="form.email"
-                        required
-                        class="appearance-none rounded-lg relative block w-full pl-4 pr-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm @error('email') border-red-500 @enderror"
-                        placeholder="Correo electrónico" value="{{ old('email') }}" />
-                    <x-input-error :messages="$errors->get('form.email')" class="mt-2" />
+                    <x-input-label for="email" :value="__('general.email')" />
+                    <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email"
+                        name="email" required autocomplete="username" />
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
                 <div>
-                    <label for="password" class="sr-only">
-                        Contraseña
-                    </label>
-                    <input id="password" name="password" type="password" autocomplete="current-password"
-                        wire:model="form.password" required
-                        class="appearance-none rounded-lg relative block w-full pl-4 pr-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm @error('password') border-red-500 @enderror"
-                        placeholder="Contraseña" />
-                    <x-input-error :messages="$errors->get('form.password')" class="mt-2" />
+                    <x-input-label for="password" :value="__('general.password')" />
+                    <x-text-input wire:model="password" id="password" class="block mt-1 w-full" type="password"
+                        name="password" required autocomplete="new-password" />
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
                 <div>
-                    <label for="password_confirmation" class="sr-only">
-                        Confirmar contraseña
-                    </label>
-                    <input id="password_confirmation" name="password_confirmation" type="password_confirmation"
-                        autocomplete="new-password" wire:model="form.password_confirmation" required
-                        class="appearance-none rounded-lg relative block w-full pl-4 pr-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm @error('password') border-red-500 @enderror"
-                        placeholder="Confirmar contraseña" />
-                    <x-input-error :messages="$errors->get('form.password_confirmation')" class="mt-2" />
+                    <x-input-label for="password_confirmation" :value="__('general.password_confirmation')" />
+                    <x-text-input wire:model="password_confirmation" id="password_confirmation"
+                        class="block mt-1 w-full" type="password" name="password_confirmation" required
+                        autocomplete="new-password" />
+                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                 </div>
             </div>
 

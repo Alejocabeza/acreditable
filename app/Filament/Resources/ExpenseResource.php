@@ -51,9 +51,9 @@ class ExpenseResource extends Resource
                     ->default(now()),
                 Select::make('category_id')
                     ->options(
-                        Category::all()->mapWithKeys(function ($category) {
+                        Category::has('budget')->get()->mapWithKeys(function ($category) {
                             $budget = $category->budget->amount;
-                            return [$category->id =>   " $category->name [\$" . number_format($budget, 2) . "]"];
+                            return [$category->id => " $category->name [\$" . number_format($budget, 2) . "]"];
                         })->toArray()
                     )
                     ->live()
@@ -62,7 +62,11 @@ class ExpenseResource extends Resource
                     ->label(__('general.category'))
                     ->required(),
                 Select::make('account_id')
-                    ->options(Account::where('balance', '>', 0)->get()->pluck('name', 'id')->toArray())
+                    ->options(
+                        Account::where('balance', '>', 0)->get()->mapWithKeys(function ($account) {
+                            return [$account->id => "{$account->name} [\${$account->balance}]"];
+                        })->toArray()
+                    )
                     ->live()
                     ->preload()
                     ->searchable()

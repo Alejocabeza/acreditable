@@ -38,7 +38,7 @@ class AccountResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name')->label(__('general.name'))->required(),
-                DatePicker::make('initial_date')->label(__('initial_date'))->required(),
+                DatePicker::make('initial_date')->label(__('initial_date'))->default(now())->required(),
                 TextInput::make('balance')->label(__('general.balance'))->required(),
                 Select::make('type')
                     ->label(__('general.type'))

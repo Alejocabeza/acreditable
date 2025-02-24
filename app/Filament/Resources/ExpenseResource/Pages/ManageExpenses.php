@@ -34,12 +34,12 @@ class ManageExpenses extends ManageRecords
                     $budget = Budget::query()->where('category_id', Category::find($data['category_id'])->id)->first();
                     if ($account->balance < $data['amount'] || $budget->amount < $data['amount']) {
                         Notification::make()
-                            ->title('Error: Insufficient funds')
+                            ->title('Error: La cuenta no tiene suficientes fondos.')
                             ->danger()
                             ->send();
 
                         throw ValidationException::withMessages([
-                            'amount' => ['Insufficient funds.'],
+                            'amount' => ['La cuenta no tiene suficientes fondos.'],
                         ]);
                     }
                     return true;
