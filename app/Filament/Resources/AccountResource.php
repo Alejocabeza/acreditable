@@ -33,6 +33,11 @@ class AccountResource extends Resource
         return __('general.accounts');
     }
 
+    public static function getNavigationGroup(): ?string
+    {
+        return __('general.management_accounts');
+    }
+
     public static function form(Form $form): Form
     {
         return $form

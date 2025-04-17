@@ -29,9 +29,12 @@ return [
     "Month" => "Meses",
     "Year" => "Años",
     'date' => 'Fecha',
+    'no_available' => 'No disponible',
     'create_account' => 'Crear Nueva Cuenta',
     'create_category' => 'Crear Nueva Categoría',
     'create_budget' => 'Crear Nuevo Presupuesto',
     'create_expense' => 'Crear Nuevo Gasto',
     'create_income' => 'Crear Nuevo Ingreso',
+    'management_accounts' => 'Gestión de Cuentas',
+    'download' => "Descargar"
 ];

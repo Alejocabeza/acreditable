@@ -31,12 +31,17 @@
                         {{-- <a href="#precios" class="text-gray-600 hover:text-blue-600">Precios</a> --}}
                     </div>
                     <div class="flex space-x-4">
-                        <a href="{{ route('login') }}" class="px-4 py-2 text-blue-600 hover:text-blue-700">Iniciar
-                            Sesión</a>
-                        <a href="{{ route('register') }}"
-                            class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                            Registrarse
-                        </a>
+                        @auth
+                            <a href="/dashboard"
+                                class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Dashboard</a>
+                        @else
+                            <a href="{{ route('login') }}" class="px-4 py-2 text-blue-600 hover:text-blue-700">Iniciar
+                                Sesión</a>
+                            <a href="{{ route('register') }}"
+                                class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                Registrarse
+                            </a>
+                        @endauth
                     </div>
                 </div>
             </div>

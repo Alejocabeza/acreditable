@@ -27,6 +27,11 @@ class CategoryResource extends Resource
         return __('general.categories');
     }
 
+    public static function getNavigationGroup(): ?string
+    {
+        return __('general.management_accounts');
+    }
+
     public static function form(Form $form): Form
     {
         return $form

@@ -59,8 +59,7 @@ class ExpenseResource extends Resource
                     ->live()
                     ->preload()
                     ->searchable()
-                    ->label(__('general.category'))
-                    ->required(),
+                    ->label(__('general.category')),
                 Select::make('account_id')
                     ->options(
                         Account::where('balance', '>', 0)->get()->mapWithKeys(function ($account) {
